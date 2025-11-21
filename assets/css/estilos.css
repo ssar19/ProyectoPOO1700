@@ -1,0 +1,41 @@
+.montserrat-200 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F8FAFD;
+}
+
+#barra {
+    border: 1px solid #d1d8e2;     
+}
+
+#buscador {
+    border-radius: 50px;
+    background-color: #E9EEF6;
+}
+
+#barra-lateral {
+    border: 1px solid rgb(237, 215, 215);
+    width: 20%;  
+    font-size: 1rem;
+    padding: 15px;
+}
+
+#boton-nuevo {
+    border: 1px solid #e7eaf0;
+    border-radius: 15px;
+    background-color: #EDF1FA;
+    width: 120px;
+    padding: 10px;
+}
+
+#boton-almacenamiento {
+    color: #0B57D0;
+    border: 1px solid gray;
+    border-radius: 15px;
+}
