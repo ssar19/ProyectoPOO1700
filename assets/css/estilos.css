@@ -7,35 +7,258 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #F8FAFD;
+    background-color: #FFFFFF;
 }
 
-#barra {
-    border: 1px solid #d1d8e2;     
+/*Acá era para cambiar cosas del nombre de la página, pero probable hay que cambiarlo porque está como hipervinculo.*/
+body a {
+    color: black;
+    cursor: pointer;
+}
+
+/*Hay que buscar un logo para nuestra página.*/
+#logo {
+    padding:10px;
+    width: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+/*Estas dos que siguen parecen lo mismo, pero no, tengo un error que verificar, por mientras que queden así.*/
+#barra-principal {
+    border: 1px solid #F8FAFD;
+    background-color: #F8FAFD; 
+}
+
+#barra-inicio {
+    border: 1px solid #F8FAFD;
+    background-color: #f8fafd; 
 }
 
 #buscador {
     border-radius: 50px;
     background-color: #E9EEF6;
+    width: 500px;
 }
 
-#barra-lateral {
-    border: 1px solid rgb(237, 215, 215);
-    width: 20%;  
+/*Esto es generalidades de los botones iniciar y crear cuenta.*/
+.botones {
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    width: 120px;
+    padding: 10px;
+}
+
+/*Pdt: los colores que escogí fue solo de prueba, tenemos que decidir una paleta de colores para el proyecto.*/
+#boton-crear {
+    background-color: rgb(180, 120, 180);
+    border-color: rgb(120, 81, 120);
+}
+
+#boton-iniciar {
+    background-color: tan;
+    border-color: rgb(155, 133, 105);
+}
+
+#boton-comenzar {
+    width: 200px;
+}
+
+.barra-izquierda {
+    border: 1px solid #F8FAFD;
+    width: 20%; 
     font-size: 1rem;
-    padding: 15px;
+    padding: 20px;
+    position: left;
+    background-color: #F8FAFD;
+    display: grid;
+    gap: 4px;
+}
+
+.barra-izquierda>div {
+    display: flex;
+    gap: 20px;   
 }
 
 #boton-nuevo {
-    border: 1px solid #e7eaf0;
+    border: 1px solid #cfcfcf;
     border-radius: 15px;
-    background-color: #EDF1FA;
+    background-color: #FFFFFF;
     width: 120px;
-    padding: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #boton-almacenamiento {
     color: #0B57D0;
     border: 1px solid gray;
     border-radius: 15px;
+}
+
+/*Aquí para que lo primero que se vea sea la página comercial.*/
+#seccion-principal, #seccion-crear-cuenta, #seccion-inicio-sesion, #seccion-planes {
+    display: none;
+}
+
+/*Aquí va el contenido de la página del usuario.*/
+#contenedor-principal>div {
+    border: 1px solid #fafafa;
+    position: absolute;
+    top: 95px;
+    right: 0px;
+    height: 100vh;
+    width: 80vw;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 30px;
+    overflow: scroll;
+}
+
+.contenido-principal>h1 {
+    position: relative;
+    top: 5px;   
+}
+
+/*Aquí es lo que va en el contenedor de la página comercial.*/
+#contenedor-inicio>div {
+    border: 1px solid #fafafa;
+    position: fixed;
+    top: 95px;
+    right: 0px;
+    height: 100vh;
+    width: 80vw;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 30px;
+    overflow: scroll;
+}
+
+.contenido>h1 {
+    position: relative;
+    top: 5px;   
+}
+
+.contenido>img {
+    width: 500px;
+}
+
+
+/*Esto es para los formularios.*/
+.contenido-form {
+    background-color: rgba(185, 162, 126, 0.5);
+    height: 120vh;
+}
+
+#formulario {
+    background-color: rgba(172, 129, 220, 0.7);
+    color: #fff;
+    width: 500px;
+    height: 550px;
+    border-radius: 5px;
+    padding: 30px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+#formulario-inicio {
+    background-color: rgba(172, 129, 220, 0.7);
+    color: #fff;
+    width: 700px;
+    height: 400px;
+    border-radius: 5px;
+    padding: 30px 50px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+#formulario:hover, #formulario-inicio:hover {
+  background-color: rgba(145, 130, 220, 0.7);
+}
+
+#formulario h1 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+
+/*Esto siempre de los forms.*/
+.caja {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-width: 0;
+}
+
+.caja-texto {
+   background-color: #4e2c65; 
+}
+
+.boton {
+    background-color: rgba(139, 116, 78, 0.5);
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: #7a3647b8;
+    text-decoration: underline;
+}
+
+#help-link {
+    float: right;
+    color: rgb(36, 5, 57);
+    text-decoration: none;
+    font-size: .8rem; 
+}
+
+#help-link:hover {
+    text-decoration: underline;
+}
+
+#contenedor-planes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin: 70px; 
+}
+
+
+/*Acá empieza para los planes y el rollo de los precios y accesos.*/
+.planes:hover {
+    background-color: rgb(241, 235, 235);
+}
+
+.planes {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1px;
+    text-align: left;
+    border: 1px solid rgba(145, 130, 220, 0.7);
+    color: black;
+    width: 350px;
+    height: 530px;
+    border-radius: 25px;
+    padding: 30px 50px;
+}
+
+.boton-aceptar{
+    border: rgb(164, 140, 108);
+    border-radius: 8px;
+    position: static;
+    width: 20vw;
+    height: 5vh;
+    bottom: 15px;
+    background-color: tan;
+}
+
+.nombre-plan {
+    text-align: center;
 }
