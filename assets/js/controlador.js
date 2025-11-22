@@ -78,3 +78,17 @@ function cargarPaises() {
 
 // Llama la función cuando la página cargue
 window.addEventListener('load', cargarPaises);
+
+const btnUser = document.getElementById("btn-user");
+const menuUser = document.getElementById("user-dropdown");
+
+btnUser.addEventListener("click", () => {
+    menuUser.style.display = (menuUser.style.display === "block") ? "none" : "block";
+});
+
+// Si le da afuera, se cierra
+document.addEventListener("click", (e) => {
+    if (!btnUser.contains(e.target) && !menuUser.contains(e.target)) {
+        menuUser.style.display = "none";
+    }
+});

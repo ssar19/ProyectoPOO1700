@@ -86,7 +86,18 @@
                 <i class="fa-regular fa-circle-question"></i>
                 <i class="fa-solid fa-gear"></i>
                 <i class="fa-solid fa-table-cells"></i>
-                <i class="fa-regular fa-user"></i>
+                
+            <div class="user-menu">
+                <i class="fa-regular fa-user" id="btn-user"></i>
+
+                <div class="user-dropdown" id="user-dropdown">
+                    <p><b>Nombre:</b> usuario</p>
+                    <p><b>Email:</b> usuario@example.com</p>
+                    <p><b>Plan:</b> Seleccionado</p>
+                    <hr>
+                    <p class="opcion" onclick="alert('Administrar cuenta')">Administrar cuenta</p>
+                    <p class="opcion" onclick="mostrarSeccionComercial()">Cerrar sesión</p>
+            </div>
             </div>
         </nav>
 
@@ -162,6 +173,10 @@
                 <img id="logo" src="assets/img/logo.jpg">
                 <a class="navbar-brand">NombrePagina</a>
             </div>
+
+            <button class="boton-home" onclick="mostrarSeccionComercial()">
+                <i class="fa-solid fa-house"></i>
+            </button>
             <section id="formulario">
                 <h1>Crea tu cuenta</h1>
                 <input class="caja caja-texto" type="text" placeholder="Nombre">
@@ -184,6 +199,10 @@
 
     <!--Esta es la sección que muestra el formulario para iniciar sesión.-->
     <section id="seccion-inicio-sesion">
+        <button class="boton-home" onclick="mostrarSeccionComercial()">
+            <i class="fa-solid fa-house"></i>
+        </button>
+        
         <div class="contenido-form">
             <div onclick="mostrarSeccionComercial()">
                 <img id="logo" src="assets/img/logo.jpg">

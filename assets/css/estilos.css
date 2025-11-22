@@ -255,6 +255,54 @@ body a {
     margin: 70px; 
 }
 
+.boton-home {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.boton-home:hover {
+    opacity: 0.7;
+}
+
+.user-menu {
+    position: relative;
+}
+
+#btn-user {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 220px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.user-dropdown p {
+    margin: 8px 0;
+}
+
+.user-dropdown .opcion {
+    cursor: pointer;
+    color: #0b57d0;
+}
+
+.user-dropdown .opcion:hover {
+    text-decoration: underline;
+}
 
 
 
