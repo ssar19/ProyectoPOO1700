@@ -49,3 +49,32 @@ const mostrarSeccionPlanes = () => {
     document.getElementById("seccion-comercial").style.display = "none";
     document.getElementById("seccion-planes").style.display = "block";
 }
+
+
+// Función para cargar países desde JSON
+function cargarPaises() {
+  fetch('assets/js/paises.json')  // Ajusta la ruta si el archivo está en otro lugar
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('No se pudo cargar el archivo paises.json');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const select = document.getElementById('codigo-pais');
+      data.forEach(pais => {
+        const option = document.createElement('option');
+        option.value = pais.code;
+        option.textContent = `${pais.flag} ${pais.name} (${pais.code})`;
+        select.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error cargando países:', error);
+      // Opcional: Muestra un mensaje al usuario
+      alert('Error al cargar la lista de países. Intenta recargar la página.');
+    });
+}
+
+// Llama la función cuando la página cargue
+window.addEventListener('load', cargarPaises);

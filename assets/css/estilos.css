@@ -212,6 +212,31 @@ body a {
     text-decoration: underline;
 }
 
+.telefono-container {
+  display: flex;
+  gap: 10px;
+}
+
+#codigo-pais {
+  width: 40%;
+  background-color: #4e2c65;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  padding: 15px;
+}
+#numero-telefono {
+  width: 60%;
+}
+@media (max-width: 768px) {
+  .telefono-container {
+    flex-direction: column;
+  }
+  #codigo-pais, #numero-telefono {
+    width: 100%;
+  }
+}
+
 #help-link {
     float: right;
     color: rgb(36, 5, 57);
@@ -229,6 +254,8 @@ body a {
     gap: 30px;
     margin: 70px; 
 }
+
+
 
 
 /*Acá empieza para los planes y el rollo de los precios y accesos.*/
