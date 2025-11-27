@@ -1,3 +1,8 @@
+var archivos = [];
+var usuarios = [];
+var localStorage = window.localStorage;
+var indiceArchivoSeleccionado = null;
+
 /*La sección comerciial se va a mostra siempre que se de click al logo o al nombre de la página en la esquina superior.*/
 const mostrarSeccionComercial = () => {
     console.log("Mostrar seccion comercial");
@@ -92,3 +97,102 @@ document.addEventListener("click", (e) => {
         menuUser.style.display = "none";
     }
 });
+
+
+
+
+console.log('ARCHIVOS: ', localStorage.getItem('archivos'));
+if (localStorage.getItem('archivos') == null) {
+    localStorage.setItem('archivos', JSON.stringify(archivos)); 
+} else {
+    archivos = JSON.parse(localStorage.getItem('archivos'));
+}
+ 
+
+function generarArchivos() {
+  document.getElementById('archivos').innerHTML = '';
+  archivos.forEach(function(archivo, i){
+
+      document.getElementById('archivos').innerHTML +=
+      `<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+          <div class="card">
+            <img src="assets/img/lenguajes.jpg" class="card-img-top app-img" onclick="editarArchivo(${i})">
+            
+            <div class="card-body">
+                <h5 class="card-title">${archivo.nombreArchivo}</h5>
+                <div>
+                    <button class="btn btn-outline-danger btn-sm" style="float:right" onclick="eliminar(${i})"><i class="fa-solid fa-trash"></i></button> 
+                </div>
+            </div>
+        </div>
+            </div>`;
+  });
+    
+}
+
+generarArchivos();
+
+function validarCampoVacio(id){
+    let campo = document.getElementById(id);
+
+    if (campo.value == '') {
+        campo.classList.remove('input-success');
+        campo.classList.add('input-error');
+    } else{
+        campo.classList.remove('input-error');
+        campo.classList.add('input-success');
+    }
+}
+
+function guardar() {
+    const archivo = {
+    nombreArchivo: document.getElementById('nombre-archivo').value
+
+    };
+
+    console.log(archivo);
+    archivos.push(archivo);
+    localStorage.setItem('archivos', JSON.stringify(archivos));
+    console.log(archivos);
+    generarArchivos();
+    $('#modalNuevoArchivo').modal('hide');
+}
+
+function eliminar(indice) {
+    console.log('Eliminar archivo con el indice', indice);
+    archivos.splice(indice, 1); //Splice se utiliza para eliminar de un arreglo
+    generarArchivos();
+    localStorage.setItem('archivos', JSON.stringify(archivos));
+}
+
+function editarArchivo(indice) {
+    console.log('Editar', indice);
+    indiceArchivoSeleccionado = indice;
+    $('#modalNuevoArchivo').modal('show');
+    let archivo = archivos[indice];
+    document.getElementById('nombre-archivo').value = archivo.nombreArchivo;
+
+    document.getElementById('btn-guardar').style.display = 'none';
+    document.getElementById('btn-actualizar').style.display = 'block';
+}
+
+function actualizar() {
+    console.log('Se actualizara el archivo con indice', indiceArchivoSeleccionado);
+    archivos[indiceArchivoSeleccionado] = {
+        nombreAplicacion: document.getElementById('nombre-archivo').value,
+
+    };
+    localStorage.setItem('archivos', JSON.stringify(archivos));
+    generarArchivos();
+    $('#modalNuevoArchivo').modal('hide');
+}
+
+function nuevoArchivo() {
+    indiceArchivoSeleccionado = null;
+    document.getElementById('nombre-archivo').value = null;
+
+    document.getElementById('btn-guardar').style.display = 'block';
+    document.getElementById('btn-actualizar').style.display = 'none';
+
+} 
+
