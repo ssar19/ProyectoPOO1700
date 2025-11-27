@@ -160,7 +160,7 @@ function guardar() {
 
 function eliminar(indice) {
     console.log('Eliminar archivo con el indice', indice);
-    archivos.splice(indice, 1); //Splice se utiliza para eliminar de un arreglo
+    archivos.splice(indice, 1); 
     generarArchivos();
     localStorage.setItem('archivos', JSON.stringify(archivos));
 }
@@ -179,7 +179,7 @@ function editarArchivo(indice) {
 function actualizar() {
     console.log('Se actualizara el archivo con indice', indiceArchivoSeleccionado);
     archivos[indiceArchivoSeleccionado] = {
-        nombreAplicacion: document.getElementById('nombre-archivo').value,
+        nombreArchivo: document.getElementById('nombre-archivo').value,
 
     };
     localStorage.setItem('archivos', JSON.stringify(archivos));
